@@ -11,7 +11,7 @@ var courseFirstPageLoaded = false;
 var viewmorebtn = document.createElement("button");
 //styling the button.
 viewmorebtn.classList.add("btn");
-viewmorebtn.textContent = "See More Modules";
+viewmorebtn.textContent = "View More Modules";
 
 //creating a div to store the modules
 var moduleContainer = document.createElement("div");
@@ -21,7 +21,7 @@ article.appendChild(moduleContainer);
 
 viewmorebtn.addEventListener("click", function() {
   var ourRequest = new XMLHttpRequest();
-  ourRequest.open('GET', 'https://raw.githubusercontent.com/AmberSLuniwork/CIS2169-Academic-Management-System-2023-2024-Amber/main/module-'+ pageCounter +'.json');
+  ourRequest.open('GET', 'https://raw.githubusercontent.com/AmberSLuniwork/CIS2169-Academic-Management-System-2023-2024-Amber/main/data/modules/module-'+ pageCounter +'.json');
   ourRequest.onload = function(){
     var ourData = JSON.parse(ourRequest.responseText);
     //this code doesn't work, but removing it stops everything else working. Keeping it in.
@@ -39,7 +39,7 @@ viewmorebtn.addEventListener("click", function() {
 moduleBtn.addEventListener("click", function(){
   if (courseFirstPageLoaded === false && pageCounter === 1) {
     var ourRequest = new XMLHttpRequest();
-    ourRequest.open('GET', 'https://raw.githubusercontent.com/AmberSLuniwork/CIS2169-Academic-Management-System-2023-2024-Amber/main/module-1.json');
+    ourRequest.open('GET', 'https://raw.githubusercontent.com/AmberSLuniwork/CIS2169-Academic-Management-System-2023-2024-Amber/main/data/modules/module-1.json');
     ourRequest.onload = function(){
       var ourData = JSON.parse(ourRequest.responseText);
       renderHTML(ourData);
