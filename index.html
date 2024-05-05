@@ -5,14 +5,23 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
 <body>
-
   <header>
     <h1>Web Application Development Course Work-2 </h1>
-    <button id ="btn">Fetch information about the modules</button>
   </header>
+  <article>
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+    </ul> 
+    <h2>Home</h2>
+    <button class="btn" id ="schedule-btn"><p>View Schedule</p></button>
+    <button class="btn" id ="course-btn"><p>View Courses</p></button>
+    <button class="btn" id ="academic-btn"><p>View Academics</p></button>
 
-  <div id="module-info"></div>
+  <div class="container" id="schedule-container"></div>
+  <div class="container" id="module-container"></div>
+  <div class="container" id="academic-container"></div>
 
   <script src="main.js"></script>
+</article>
 </body>
 </html>
