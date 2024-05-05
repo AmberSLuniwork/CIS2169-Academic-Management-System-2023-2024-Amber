@@ -1,0 +1,52 @@
+<html>
+<head>
+  <meta name ="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Coursework2_WebApp</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+<body>
+  <header>
+    <h1>Web Application Development Course Work-2 </h1>
+  </header>
+  <article>
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="EditCourse.html">Edit Course</a></li>
+    </ul> 
+    <h2>Edit Course</h2>
+    <form id="editModuleForm">
+      <label for="moduleType"><h3>Module Type</h3></label>
+      <select id="moduleType" name="Module Type" required>
+          <option value="Undergraduate">Undergraduate</option>
+          <option value="Post-Graduate">Post-Graduate</option>
+          <option value="Research">Research</option>
+      </select>
+      <br>
+      <label for="courseName"><p>Course name:</p></label>
+      <input type="text" id="courseName" name="courseName" required>
+      <br>
+      <label for="learningOutcomes"><p>Learning outcomes:</p></label>
+      <select id="learningOutcomes" name="Learning outcomes" required>
+          <option value="LO1">LO1</option>
+          <option value="LO2">LO2</option>
+      </select>
+      <br>
+      <div id="assignmentFields">
+        <h3>Assignment(s)</h3>
+      </div>
+      <br>
+      <button type="button" onclick="addAssignment()">Add Assignment</button>
+      <br>
+      <label for="credits"><p>Hours:</p></label>
+      <input type="hours" id = "hours" name="hours" required>
+      <br>
+      <label for="credits"><p>Credits:</p></label>
+      <input type="number" id = "credits" name="credits" required>
+      <br>
+      <hr>
+      <button type="submit"><p>Update</p></button>
+  </form>
+    <script src="scripts/addOrEditModule.js"></script>
+</article>
+</body>
+</html>

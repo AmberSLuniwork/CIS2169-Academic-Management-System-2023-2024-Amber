@@ -1,7 +1,8 @@
+//this piece of code handles loading in the module data. 
+//It has been left as main because the module was the main component.
+
 var pageCounter = 1;
-var courseBtn = document.getElementById("course-btn");
-var scheduleBtn = document.getElementById("schedule-btn");
-var academicBtn = document.getElementById("academic-btn");
+var moduleBtn = document.getElementById("module-btn");
 var article = document.getElementsByTagName("article")[0];
 
 //stops the view more courses button loading more pages than it should!
@@ -23,10 +24,10 @@ viewmorebtn.addEventListener("click", function() {
   ourRequest.open('GET', 'https://raw.githubusercontent.com/AmberSLuniwork/CIS2169-Academic-Management-System-2023-2024-Amber/main/module-'+ pageCounter +'.json');
   ourRequest.onload = function(){
     var ourData = JSON.parse(ourRequest.responseText);
-    // Check if data is empty (i.e., module does not exist)
+    //this code doesn't work, but removing it stops everything else working. Keeping it in.
     if (ourData.length === 0) {
       alert("No more modules.");
-      viewmorebtn.style.display = 'none'; // Hide the button
+      viewmorebtn.style.display = 'none'; 
     } else {
       renderHTML(ourData);
     }
@@ -35,7 +36,7 @@ viewmorebtn.addEventListener("click", function() {
   pageCounter++;
 });
 
-courseBtn.addEventListener("click", function(){
+moduleBtn.addEventListener("click", function(){
   if (courseFirstPageLoaded === false && pageCounter === 1) {
     var ourRequest = new XMLHttpRequest();
     ourRequest.open('GET', 'https://raw.githubusercontent.com/AmberSLuniwork/CIS2169-Academic-Management-System-2023-2024-Amber/main/module-1.json');
@@ -46,12 +47,12 @@ courseBtn.addEventListener("click", function(){
       courseFirstPageLoaded = true;
 
       // Toggle the display of module container and view more button
-      if (courseBtn.textContent === "View Courses"){
-        courseBtn.textContent = "Hide courses";
+      if (moduleBtn.textContent === "View Modules"){
+        moduleBtn.textContent = "Hide Modules";
         moduleContainer.style.display = "block";
         viewmorebtn.style.display = "block"; // Show the view more button
       } else {
-        courseBtn.textContent = "View Courses";
+        moduleBtn.textContent = "View Modules";
         moduleContainer.style.display = "none";
         viewmorebtn.style.display = "none"; // Hide the view more button
         if (moduleContainer && moduleContainer.parentNode) {
@@ -65,12 +66,12 @@ courseBtn.addEventListener("click", function(){
     ourRequest.send();
   } else {
     // Toggle the display of module container and view more button
-    if (courseBtn.textContent === "View Courses"){
-      courseBtn.textContent = "Hide courses";
+    if (moduleBtn.textContent === "View Modules"){
+      moduleBtn.textContent = "Hide Modules";
       moduleContainer.style.display = "block";
       viewmorebtn.style.display = "block"; // Show the view more button
     } else {
-      courseBtn.textContent = "View Courses";
+      moduleBtn.textContent = "View Modules";
       moduleContainer.style.display = "none";
       viewmorebtn.style.display = "none"; // Hide the view more button
       moduleContainer.innerHTML = ""; // Clear the content inside moduleContainer
@@ -119,8 +120,12 @@ function renderHTML(data){
       }
       "</p";
     }
+    //adding an edit module button here
+    htmlString += "<br> <br>";
+    htmlString += "<button class='btn'>Edit Module</button>";
     htmlString += "<hr>";
   }
   moduleContainer.insertAdjacentHTML('beforeend', htmlString);
+  htmlString += "<button class='btn'>Add Module</button>"
   moduleContainer.appendChild(viewmorebtn);
 }

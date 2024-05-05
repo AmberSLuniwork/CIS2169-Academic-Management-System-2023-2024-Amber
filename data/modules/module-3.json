@@ -1,7 +1,7 @@
 [
   {
     "Name": "Undergraduate",
-    "Course":"Web Development THIS IS MODULE ONE.",
+    "Course":"Web Development",
     "Module": {
       "Learning_outcomes":["LO1", "LO2"],
       "Assignment":["CW1", "CW2"],
@@ -26,10 +26,8 @@
       "Learning_outcomes":["LO1", "LO2"],
       "Assignment":["CW1", "CW2"],
       "Volume":["1000 words", "4000 words"],
-      "weights":["20%", "80%"],
-      "credits": [60],
-      "hours": [10]
+      "weights":["20%", "80%"]
     }
+    
   }
-  
 ]
