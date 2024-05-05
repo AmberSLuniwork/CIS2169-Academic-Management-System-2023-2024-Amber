@@ -12,7 +12,7 @@ This repository represents the existing academic management system. It contains 
 
 * index.html.
 * main.js
-* module-1.json     *(for undergradutae degrees and modules)*
+* module-1.json     *(for undergraduate degrees and modules)*
 * module-2.json     *(for postgraduate degrees and modules)*
 * module-3.json     *(for research degrees such PhD and MS by research)*
 
