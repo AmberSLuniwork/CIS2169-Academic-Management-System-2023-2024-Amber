@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
             htmlString += "<input type='text' id='credits' name='credits' value='" + data[i].credits + "'><br>";
             htmlString += "<label for='hours'>Hours:</label>";
             htmlString += "<input type='text' id='hours' name='hours' value='" + data[i].hours + "'><br>";
-            htmlString += "<button type='submit' class='btn'>Save</button>";
+            htmlString += "<button type='submit' id=submit class='btn'>Save</button>";
             htmlString += "</form><br>";
             htmlString += "<hr>";
         }
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
           htmlString += "<button class='btn' id='finishModule' onclick='addModule()'>Add Module</button>";
         htmlString += "</form>";
     
-        // Add Module button
+        // button for adding modules here
         htmlString += "<button class='btn' id='addModule' onclick='toggleForm(\"form-add\")'>Add Module</button>";
         htmlString += "<br><br>";
         moduleContainer.insertAdjacentHTML('beforeend', htmlString);
@@ -164,3 +164,6 @@ function editModule(moduleName) {
     var form = document.getElementById('form-' + moduleName);
     form.style.display = 'block';
 }
+saveBtn.addEventListener("Click", function(){
+
+});
