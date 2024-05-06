@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Load the first page's worth of data when the page loads
-    loadModuleData();
+    loadAcademicData();
 
     // Function to load module data
-    function loadModuleData() {
+    function loadAcademicData() {
         var ourRequest = new XMLHttpRequest();
-        ourRequest.open('GET', 'https://raw.githubusercontent.com/AmberSLuniwork/CIS2169-Academic-Management-System-2023-2024-Amber/main/data/modules/academic-1.json');
+        ourRequest.open('GET', 'https://raw.githubusercontent.com/AmberSLuniwork/CIS2169-Academic-Management-System-2023-2024-Amber/main/data/academics/academic-1.json');
         ourRequest.onload = function() {
             var ourData = JSON.parse(ourRequest.responseText);
             renderHTML(ourData);
@@ -50,53 +50,41 @@ document.addEventListener('DOMContentLoaded', function() {
         pageCounter++;
     }
 
-    // Function to render module data
     function renderHTML(data) {
-        htmlString = ""; // Reset htmlString to an empty string
-        for (var i = 0; i < data.length; i++) {
-            htmlString += "<h2>Name</h2>"
-            htmlString += "p" + data[i].Name + "</p>";
-            htmlString += "<h2>Name</h2>"
-            htmlString += "p" + data[i].Department + "</p>";
-
-            // Button to edit module
-            htmlString += "<button class='btn' onclick='editAcademic(\"" + data[i].Course + "\")'>Edit Academic</button><br>";
-            // Form for editing academic (initially hidden)
-            htmlString += "<br><form class='edit-form' id='form-" + data[i].Course + "' style='display:none;'>";
-            htmlString += "<label for='name'>Name:</label>";
-            htmlString += "<input type='text' id='name' name='name'><br>";
-
-        }
-        htmlString += "<form class='edit-form' id='form-add' style='display:none;'>";
-          htmlString += "<label for='name'>Name:</label>";
-          htmlString += "<input type='text' id='name' name='name'><br>";
-          htmlString += "<label for='department'>Department:</label>";
-          htmlString += "<input type='text' id='department' name='department'><br>";
-          htmlString += "<button class='btn' id='finishAcademic' onclick='addAcademic()'>Add Academic</button>";
-        htmlString += "</form>";
-    
-        // button for adding modules here
-        htmlString += "<button class='btn' id='addAcademic' onclick='toggleForm(\"form-add\")'>Add Academic</button>";
-        htmlString += "<br><br>";
-        moduleContainer.insertAdjacentHTML('beforeend', htmlString);
-        moduleContainer.appendChild(viewmorebtn);
-    }
-});
-
-//adding and editing module functions go here - they need to be in the loop to access the data.
-function toggleForm(formId, finishModule) {
-  var form = document.getElementById(formId);
-  var doneButton = document.getElementById(finishModule);
-  if (form.style.display === "none") {
-      form.style.display = "block";
-      doneButton.textContent = "Done";
-  } else {
-      form.style.display = "none";
-      doneButton.textContent = "Add Module";
+      htmlString = ""; // Reset htmlString to an empty string
+      for (var i = 0; i < data.length; i++) {
+          htmlString += "<h2>Name</h2>"
+          htmlString += "<p>" + data[i].Name + "</p>";
+          htmlString += "<h2>Department</h2>"
+          htmlString += "<p>" + data[i].Department + "</p>";
+  
+          // Button to edit academic
+          htmlString += "<button class='btn' onclick='editAcademic(\"" + data[i].Name + "\", \"" + i + "\")'>Edit Academic</button><br>";
+          // Form for editing academic (initially hidden)
+          htmlString += "<br><form class='edit-form' id='form-" + data[i].Name + "-" + i + "' style='display:none;'>";
+          htmlString += "<label for='name-" + i + "'>Name:</label>";
+          htmlString += "<input type='text' id='name-" + i + "' name='name'><br>";
+          // You can similarly add unique IDs for other form elements
+      }
+      // Your existing code
   }
-}
-function editModule(moduleName) {
-    // Show the form for editing the module
-    var form = document.getElementById('form-' + moduleName);
-    form.style.display = 'block';
-}
+  
+  // Function to toggle form visibility
+  function toggleForm(formId, finishAcademic) {
+      var form = document.getElementById(formId);
+      var doneButton = document.getElementById(finishAcademic);
+      if (form.style.display === "none") {
+          form.style.display = "block";
+          doneButton.textContent = "Done";
+      } else {
+          form.style.display = "none";
+          doneButton.textContent = "Add Academic";
+      }
+  }
+  
+  // Function to handle editing an academic
+  function editAcademic(academicName, index) {
+      var form = document.getElementById('form-' + academicName + "-" + index);
+      form.style.display = 'block';
+  }
+});
