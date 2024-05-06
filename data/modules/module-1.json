@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "Name": "Undergraduate",
     "Course":"Web Development",
     "Module": {
@@ -9,5 +10,4 @@
       "weights":["20%", "80%"]
     }
   }
-  
 ]

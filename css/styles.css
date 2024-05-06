@@ -57,8 +57,21 @@
     div.container{
         margin-top: 25px;
         padding: 2%;
-        background-color: #dadada;
+        background-color: #ebebeb;
     }
+/* Nav styling */
+.nav li{
+    display: inline-block;
+    margin-left:10px;
+    margin-right:10px;
+}
+.nav li a{
+    text-decoration: none;
+    color: #dadada;
+}
+.nav li a:hover{
+    font-weight: bold;
+}
 /* Typography */
     h1, h2, h3, h4, p, a{
         font-family: 'calibri';

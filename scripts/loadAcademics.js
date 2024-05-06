@@ -23,7 +23,7 @@ viewMoreAcademicsBtn.addEventListener("click", function() {
   ourRequest.onload = function(){
     var ourData = JSON.parse(ourRequest.responseText);
     //this code doesn't work, but removing it stops everything else working. Keeping it in.
-    if (ourData.length === 0) {
+    if (ourData.length === "0") {
       alert("No more academics.");
       viewMoreAcademicsBtn.style.display = 'none'; 
     } else {
